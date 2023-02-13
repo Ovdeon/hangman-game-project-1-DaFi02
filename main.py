@@ -1,6 +1,10 @@
 import json
 import random
 import string
+import logging
+
+#importando la libreria para el loggin
+logging.basicConfig(level=logging.DEBUG)
 
 #Abriendo el archivo.json
 
@@ -144,6 +148,7 @@ def star_game_hangman(secret_word):
         drawing(attempts)
         print("--------------------")
         letter = input("Ingrese una letra: ").lower()
+
         if len(letter) ==1:
             if letter in selec_letters:
                 print("Ya ingresaste esa letra")
@@ -152,7 +157,7 @@ def star_game_hangman(secret_word):
                 print("Caracter no válida")
             elif letter in secret_word:
                 print("--------------------")
-                print("Correcto")
+                print("Correcto!!!")
                 print("--------------------")
                 selec_letters.append(letter)
                 print("Solución:", solution(secret_word, selec_letters))
@@ -178,20 +183,22 @@ def start_game():
     """
     out = True
     while out:
-        print("--------------------")
-        print("Bienvenido al menú del juego :D ")
-        print("""
-            1. Jugar
-            2. Salir""")
-        alternative = input("\nEscriba el número de la opción que desea: ")
-        if alternative == "1":
-            star_game_hangman(selec_word())
-        elif alternative == "2":
+        try:
+
             print("--------------------")
-            print("Gracias por jugar :D ")
-            print("Vuelva PRONTO")
-            out = False
-        else:
-            print("Ingrese una opción válida")
+            print("Bienvenido al menú del juego :D ")
+            print("""
+                1. Jugar
+                2. Salir""")
+            alternative = int(input("\nEscriba el número de la opción que desea: "))
+            if alternative == 1:
+                star_game_hangman(selec_word())
+            elif alternative == 2:
+                print("--------------------")
+                print("Gracias por jugar :D ")
+                print("Vuelva PRONTO")
+                out = False
+        except ValueError:
+            logging.warning("Ingrese una opción válida")
 
 start_game()
