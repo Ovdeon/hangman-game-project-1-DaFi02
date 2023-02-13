@@ -19,6 +19,12 @@ Write here all you want.
 
 ### Proceso creativo:
 
-- Cree una función para que se pueda leer el archivo .json
-- Cree una función para que se pueda elegir una palabra al azar del archivo .json
-- Cree
+- Cree una función llamada open_json para que se pueda leer el archivo .json
+- Cree una función llamada selec_word para que se pueda elegir una palabra al azar del archivo .json
+- Cree una función llamada word_complete para que pueda verificar si la palabra está completa o no.
+- Cree una función llamadaa solution para que pueda mostrar la solución al usuario en caso se llene cada letra o se vea con "_".
+- Cree una función llamada letter_available para que pueda verificar si la letra está disponible o no.
+- Cree una función llamada incorrect_letter para que pueda que se verifica la cantidad de incorrectas y se imprima un mensaje
+- Creee la función darwing para que pueda imprimir el dibujo del ahorcado.
+- Cree la función star_game_hangman para que pueda iniciar el juego del ahorcado.
+- Por ultimo cree un menu sencillo para que el usuario pueda escoger si jugar o salir del juego del ahorcado
