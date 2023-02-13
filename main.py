@@ -60,17 +60,74 @@ def letter_available(selec_letters):
 
 #letra incorrecta
 def incorrect_letter(attempts, solution):
+
+
     attempts -=1
+
     print(f"Incorrecto, esa letra no esta en la palabra {solution}")
+
     return attempts
+
+def drawing(attempts):
+    stages = ["""
+                       --------
+                       |      |
+                       |      O
+                       |     \|/
+                       |      |
+                       |     / \  
+                       -
+                    """, """
+                       --------
+                       |      |
+                       |      O
+                       |     \|/
+                       |      |
+                       |     / 
+                       -
+                    """, """
+                       --------
+                       |      |
+                       |      O
+                       |     \|/
+                       |      |
+                       |      
+                       -
+                    """, """
+                       --------
+                       |      |
+                       |      O
+                       |      |
+                       |      
+                       |     
+                       -
+                    """, """
+                       --------
+                       |      |
+                       |      O
+                       |      |
+                       |      
+                       |     
+                       -
+                    """, """
+                       --------
+                       |      |
+                       |      O
+                       |      
+                       |      
+                       |     
+                       -
+                    """]
+    print(stages[attempts])
 
 #comienza el juego
 
-def star_game(secret_word):
+def star_game_hangman(secret_word):
 
     """"
     Comienza el juego
     """
+    print("--------------------")
     print("Bienvenido al juego del ahorcado")
     print("Tienes 5 intentos para adivinar la palabra")
     print("Buena suerte")
@@ -80,10 +137,12 @@ def star_game(secret_word):
     attempts = 5
 
     while not word_complete(secret_word, selec_letters) and attempts > 0:
+        print("--------------------")
         print("Intentos restantes:", attempts)
         print("Letras disponibles:", letter_available(selec_letters))
         print("Solución:", solution(secret_word, selec_letters))
-
+        drawing(attempts)
+        print("--------------------")
         letter = input("Ingrese una letra: ").lower()
         if len(letter) ==1:
             if letter in selec_letters:
@@ -106,11 +165,34 @@ def star_game(secret_word):
         else:
             print("Ingrese una sola letra o número")
     if attempts == 0:
+
         print("--------------------")
+        drawing(attempts)
         print("GAME OVER")
         print("La palabra era:", secret_word)
         print("Prueba de nuevo :D ")
 
-selec = selec_word()
-print("--------------------")
-star_game(selec)
+def start_game():
+    """
+    Menú del juego
+    """
+    out = True
+    while out:
+        print("--------------------")
+        print("Bienvenido al menú del juego :D ")
+        print("""
+            1. Jugar
+            2. Salir""")
+        alternative = input("\nEscriba el número de la opción que desea: ")
+        if alternative == "1":
+            star_game_hangman(selec_word())
+        elif alternative == "2":
+            print("--------------------")
+            print("Gracias por jugar :D ")
+            print("Vuelva PRONTO")
+            out = False
+        else:
+            print("Ingrese una opción válida")
+
+
+start_game()

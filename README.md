@@ -16,3 +16,9 @@ https://www.youtube.com/watch?v=leW9ZotUVYo
 
 ### What was your creative process:
 Write here all you want.
+
+### Proceso creativo:
+
+- Cree una función para que se pueda leer el archivo .json
+- Cree una función para que se pueda elegir una palabra al azar del archivo .json
+- Cree
