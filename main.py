@@ -98,7 +98,7 @@ def drawing(attempts):
                        |      |
                        |      O
                        |      |
-                       |      
+                       |      |
                        |     
                        -
                     """, """
