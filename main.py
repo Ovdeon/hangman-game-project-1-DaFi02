@@ -193,6 +193,5 @@ def start_game():
             out = False
         else:
             print("Ingrese una opción válida")
-print("prueba")
 
 start_game()
