@@ -46,6 +46,8 @@ def solution(secret_word,selec_letters):
     for letter in secret_word:
         if letter in selec_letters:
             solution += letter
+        elif letter == " ": #si es un espacio
+            solution += " "
         else:
             solution += "_ "
     return solution
